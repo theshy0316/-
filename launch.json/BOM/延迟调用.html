@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=1;
+        //开启一个定时器
+      /*   setInterval(function(){
+            console.log(num++);
+        },3000); */
+        /* 
+        
+        延时调用
+        隔段时间再执行 只执行一次
+        延时调用和延时调用可以相互代替
+        
+        */
+      var timer=  setTimeout(function(){
+            console.log(num++);
+        },3000);
+        clearTimeout(timer);
+        //关闭延时调用
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        window.onload=function(){
+            /* 
+            键盘事件
+            onkeydown 按键按下 不松手会一触发
+            onkeyup 按键松开
+            键盘事件一般绑定给可以获取到焦点的对象
+            */
+           //判断某个按键被按下
+      /*     
+           document.onkeydown=function(event){
+            event=event||window.event;
+            //event.key来获取按键编码 
+//alert(event.key);
+             if(event.keyCode===89&&event.ctrlKey)
+           {
+               alert("ctrl和y都被按下");
+           }
+           };
+           document.onkeyup=function(event){
+               
+            }; */
+            //获取input
+            var input=document.getElementsByTagName("input")[0];
+            input.onkeydown=function(event){
+                event=event||window.event;
+                if(event.keyCode>=48&&event.keyCode<=57){
+
+                    return false;
+                }
+              
+                //在文本框中输入内容时默认行为
+                //如果在onkeydown取消了默认行为 则输入的内容不会出现在文本框中
+            };
+        };
+    </script>
+</head>
+<body>
+   
+    <input type="text" />
+</body>
+</html>

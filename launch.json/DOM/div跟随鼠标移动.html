@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #003153;
+            position: absolute;/* //开启定位 */
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+          /* 
+            使div跟随鼠标移动
+        */  
+       var box1=document.getElementById("box1");
+       document.onmousemove=function(){
+           //获取鼠标坐标
+       /*  var left=event.clientX;
+        var top=event.clientY; */
+        var left=event.pageX;
+        var top=event.pageY;
+
+        //pageX/Y 可以获取鼠标在当前页面的坐标 不兼容ie8
+        /*   
+        获取滚动条滚动的距离
+        谷歌认为 滚动条是body的
+        其他浏览器认为 是html的
+        */
+       var st=document.documentElement.scrollTop||document.body.scrollTop;
+       
+        //设置div偏移量   
+        box1.style.left=left+"px";
+        box1.style.top=top+st+"px";
+        
+        };
+
+        };
+       
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

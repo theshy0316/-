@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #8f4b28;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                /* 
+                获取元素当前的样式
+                语法
+                元素.currentStyle.样式名(ie可用)
+                读取当前元素正在显示的样式
+                其他浏览器用getComputedStyle（元素名）.样式名
+                */
+                var obj = getComputedStyle(box1, null);
+                alert(obj.width);
+            };
+        };
+        /* 
+        解决浏览器兼容问题
+        定义一个函数 原来获取指定元素的当前样式
+        参数 obj 要获取样式的元素
+        name 要获取的样式名
+        */
+       function getStyle(obj,name){
+           if(window.getComputedStyle){ 
+               return   getComputedStyle(obj,null)[name];
+            }else{
+return obj.currentStyle[name];
+            }
+ //三元表达式  也行         return window.getComputedStyle?getComputedStyle(obj,null)[name]: obj.currentStyle[name];
+        
+      
+       };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <br /> <br />
+    <button id="btn01">点一下</button>
+</body>
+
+</html>

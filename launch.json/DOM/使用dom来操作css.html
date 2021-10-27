@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: #8f4b28;       
+         }
+    </style>
+    <script>
+        window.onload=function(){
+            /* 
+            点击按钮后 修改box1的大小
+            */
+           //获取box1
+           var box1=document.getElementById("box1");
+           var btn01=document.getElementById("btn01");
+           btn01.onclick=function(){
+               //修改box1的样式
+               /* 
+               通过js修改元素的样式
+               语法
+               元素.style.样式名=样式值；
+               */
+              box1.style.width="300px";
+              box1.style.height="300px";
+              box1.style.backgroundColor="red";
+              /* 
+              修改的是内联样式（权重高）
+              */
+              /* 
+              如果样式名中有— 需要去掉减号 改用驼峰命名法
+              */
+
+           };
+           //点击btn02读取元素样式
+           btn02.onclick=function(){
+            var btn02=document.getElementById("btn02");
+            btn02.onclick=function(){
+                //读取box1的样式
+                //语法 元素.style.样式名
+                //只能读内联样式
+                alert(box1.style.width);
+            };
+           };
+        };
+    </script>
+</head>
+
+
+    <div id="box1"></div>
+</br>
+    <button id="btn01">
+        修改样式
+    </button>
+    <button id="btn02">
+        读取样式
+    </button>
+</body>
+</html>

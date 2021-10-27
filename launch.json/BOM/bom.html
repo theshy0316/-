@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+       BOM 浏览器对象模型
+       可以通过js来操作浏览器
+       BOM对象
+       Window
+        代表整个浏览器的窗口 也是网页的全局对象
+       Navigator
+        代表当前浏览器的信息 通过该对象可以来识别不同的浏览器
+       Location
+        代表浏览器的地址栏信息 通过该对象可以获取地址栏信息 也可以操作浏览器跳转页面
+       History
+        浏览器的历史纪录 可以通过该对象来操作浏览器的历史记录
+        由于隐私的原因不能获取具体的历史记录
+        只能操作浏览器向前或向后翻页 而且该操作只在当次访问有效
+       Screen
+       代表用户的屏幕信息  通过该对象可以获取用户的显示器相关信息
+       这些bom对象都是作为window对象来保存的
+       可以通过window对象来使用 也可以直接使用
+        */
+       /* 
+       Navigator
+       代表当前浏览器的信息 通过该对象可以来识别不同的浏览器
+       由于历史原因 Navigator对象的大部分属性已经不能帮助我们识别浏览器了
+       一般用userAgent来判断浏览器的信息
+       userAgent是一个字符串包含用来描述浏览器信息的内容
+       不同的浏览器回应不同的userAgent
+       */
+       // alert(window.navigator.userAgent);
+       //判断浏览器
+      var a=window.navigator.userAgent;
+       if(/Chrome/i.test(a)){
+        alert("谷歌浏览器");
+       }else if(/firefox/i.test(a)){
+           alert("火狐浏览器");
+       }else if(/ msIe/i.test(a)){
+           alert("ie浏览器");
+       }
+       /* 
+       如果不能通过userAgent来判断,可以通过浏览器其他特征来判断
+       ActiveXObject
+       */
+      if("ActiveXObject" in window){
+        alert("ie浏览器");
+      }else{
+        alert("不是ie浏览器");
+      }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

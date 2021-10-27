@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        事件就是用户与浏览器之间的交互行为
+        */
+    </script>
+</head>
+<body>
+    <!-- 
+        可以在事件对应的属性中设置Js代码
+        事件被触发 代码执行
+     -->
+    <!--  
+        ondblclick 点击两下 
+        onclick 点击一下
+    -->
+
+    <!-- <button id="btn" ondblclick="alert('123')">我是一个按钮  </button> -->
+<button id="btn">我是一个按钮</button>
+<script>
+    var btn= document.getElementById("btn");
+    /* 
+    为对应事件绑定处理函数的形式来响应事件
+    事件触发 对应函数执行
+    */
+   btn.onclick=function(){
+       alert("098");
+   }
+</script>
+</body>
+</html>

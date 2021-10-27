@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var body=document.getElementsByTagName("body")[0];
+            /* 
+            在document中有个body属性，保存的就是body的引用
+            */
+           var body=document.body;
+           //document.documentElement 保存的是html根标签
+           /* 
+           根据元素的class属性值查询一组元素节点对象
+           */
+          var box1=document.getElementByClassName("box1");
+          /* 
+          获取页面中所有的div
+          */
+         var div=document.getElementsByTagName("div");
+         /* 
+         获取class为box1的所有div
+         */
+      var div=  document.querySelector(".box1 div");
+        /* 
+        需要一个选择器的字符串作为参数 可以根据选择器来查询一个元素节点对象
+       ie8不支持getElementByClassName可以用querySelector代替
+       总会返回一个元素  有多个也只返回第一个
+       */
+    var div=  document.querySelectorAll(".box1 div");
+    /* 
+    和querySelector类似 但会将符合条件的元素封装到一个数组 一起返回
+    */
+         console.log(div.length);
+        };
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div></div>
+    </div>
+</body>
+</html>

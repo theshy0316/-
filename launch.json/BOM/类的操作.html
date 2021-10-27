@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的操作</title>
+    <style>
+        .b1 {
+            width: 100px;
+            height: 100px;
+            background-color: beige;
+        }
+
+        .b2 {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            /* 
+            通过style属性来修改样式
+            每修改一次浏览器就要重新渲染一次
+            性能较差
+            修改多个样式也不方便     
+            */
+            btn01.onclick = function () { /* 
+                box.style.width="200px";
+                box.style.height="200px"; 
+                */
+                //修改box的class属性
+                /* 
+                修改一次可以修改多个样式
+                浏览器只需要渲染一次   
+                */
+                /*  box.className+=" b2"; */
+                addClass(box, "b2");
+                /*  removeClass(box,"b2");  */
+            };
+            btn02.onclick = function () {
+                removeClass(box, "b2");
+            };
+        };
+        function addClass(obj, cn) {
+            //检查是否有cn
+            if (!hasClass(obj, cn)) {
+                obj.className += " " + cn;
+            }
+        }
+        function hasClass(obj, cn) {
+            //判断obj中有没有cn
+            //创建正则表达式
+            var reg = new RegExp("\\b" + cn + "\\b");
+            return reg.test(obj.className);
+        }
+        function removeClass(obj, cn) {
+            //创建正则表达式
+            var reg = new RegExp("\\b" + cn + "\\b");
+            //删除class
+            obj.className = obj.className.replace(reg, "");
+        }
+    </script>
+</head>
+<button id="btn01">修改box的样式1</button>
+<button id="btn01">修改box的样式2</button>
+</br></br>
+<div id="box" class="b1"></div>
+</body>
+</html>

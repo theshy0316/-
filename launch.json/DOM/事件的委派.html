@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btn01=document.getElementById("btn01");
+            btn01.onclick=function(){
+                var li=document.createElement("li");
+                li.innerHTML="<a href='javascript:;' class='link'>链接4</a>";
+                //将li添加到ul中
+                ul.appendChild("li");
+            };    
+            /* 
+            为每一个超链接绑定一个单击响应函数
+            */
+           var allA=document.getElementById("a");
+           //遍历
+          /*  for(var i=0;i<allA.length;i++)
+           {
+               allA[i].onclick=function(){
+
+               };
+           } */
+           /* 
+           我们希望只绑定一次 即可应用到多个元素 即使是最后加上的
+           绑定到这些元素共同的祖先元素 事件会一直冒泡到祖先元素
+
+           事件的委派 利用冒泡 通过委派可以减少绑定次数 提高性能
+           */
+          //为ul绑定单击响应函数
+          ul.onclick=function(){
+              event=event||window.event;
+             /*  alert(event.target); */
+              /* 
+              target event 中触发事件的对象
+              */
+            //如果触发事件的对象是我们的期望元素 则执行 
+            if(event.target.className=="link"){
+
+            }
+          };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="u1">
+        <li><a href="javascript:;" class="link">链接1</a></li>
+        <li><a href="javascript:;" class="link">链接2</a></li>
+        <li><a href="javascript:;" class="link">链接3</a></li>
+    </ul>
+</body>
+</html>

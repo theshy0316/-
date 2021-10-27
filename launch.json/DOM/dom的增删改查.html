@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            width: 500px;
+            height: 500px;
+        }
+        #total{
+            width: 350px;
+            
+        }
+        #city{
+            float: right;
+            line-height: 40px;
+            list-style-type: none;
+            display: block;
+            text-align: center;
+        }
+        #btnList{
+        float: left;
+        }
+        .li{
+            margin: 0px 10px;
+            float: right;
+        }
+    </style>
+    <script>
+         function myClick(idStr,fun){
+            var btn=document.getElementById(idStr);
+            btn01.onclick=function(){
+                var bj=document.getElementById("bj");
+            }
+        }
+        window.onload=function(){
+            //创建一个广州节点 添加到#city下
+            myClick("btn01" ,function(){
+                //创建广州节点
+                //创建li元素节点
+               var li= document.createElement("li");
+                /* 
+                createElement 
+                可用于创建一个元素节点 
+                以标签名作为参数 创建好的对象作为返回值返回
+                */
+               //创建广州文本
+             var text=  document.createTextNode("广州");
+               /* 
+                document.createTextNode
+                创建一个文本对象
+                以内容文本作为参数
+                根据该内容文本创建文本节点 并将新的节点返回
+               */
+               /* 
+               appendChild()
+               向父节点中添加子节点
+               用法 父节点.appendChild(子节点)
+                */
+                li.appendChild(text);
+                //获取id为city的节点
+                var city=document.getElementById("city");
+                city.appendChild(li);
+            });
+        };
+            //将广州节点插入到#bj前面
+            myClick("btn02",function(){
+            //创建个广州
+            var li =document.createElement("li");
+            var text=document.createTextNode("广州");
+            li.appendChild(text);
+            //获取id为bj的节点
+            var bj=document.getElementById("bj");
+                //获取city
+                var city=document.getElementById("city");
+                city.insertBefore(li,bj);
+                /* 
+                insertBefore
+                在指定节点前插入新的子节点
+                父节点.insertBefore(新节点 ，旧节点)
+                */
+            });
+            //使用广州节点替换#bj节点
+            myClick("btn03",function(){
+                var li=document.createElement("li");
+                var text=document.createTextNode("广州");
+                li.appendChild(text);
+                var bj=document.getElementById("id");
+                var city=document.getElementById("city");
+                city.replaceChild(li,bj);
+                /* 
+                replaceChild
+                使用指定的子节点替换已有的子节点
+                语法 父节点.replaceChild(新节点)
+                */
+
+            });
+            //删除#bj节点
+            myClick("btn04",function(){
+                var bj=document.getElementById("id");
+                var city=document.getElementById("city");
+               /* 
+               removeChild
+               可以删除一个子节点
+               语法
+               父节点.removeChild(子节点)；
+               */
+                city.removeChild(bj);//方法一
+                bj.parentNode.removeChild(bj);//方法二
+                //子节点.parentNode.remove(子节点)
+            });
+            //读取#city内的html代码
+            myClick("btn05",function(){
+                var city=document.getElementById("city");
+                alert(city.innerHTML);
+            });
+            //设置#bj内的html代码
+            /* 
+            使用innerHtml也可以实现dom的增删改查
+            一般两种方式组合使用
+            */
+          /*  var li=document.getElementById("li");
+           li.innerHTML="广州";
+           city.appendChild(li); 
+           推荐使用*/
+            myClick("btn06",function(){
+                var bj=document.getElementById("bj");
+                bj.innerHTML="123";
+            });
+   </script>
+</head>
+<body>
+    <div id="total">
+        <div class="inner">
+            <p>你喜欢哪个城市？</p>
+            <ul id="city">
+                <li class=li id="bj">北京</li>
+                <li class=li>上海</li>
+                <li class=li>首尔</li>
+                <li class=li>东京</li>
+            </ul>
+        </div>
+    </div>
+    <div id="btnList">
+        <div><button id="btn01">创建一个广州的节点 并添加#city下面</button></div><br/>
+        <div><button id="btn02">将广州节点插入到#bj前面</button></div><br/>
+        <div><button id="btn03">使用广州节点替换#bj节点</button></div><br/>
+        <div><button id="btn04">删除#bj节点</button></div><br/>
+        <div><button id="btn05">读取#city内的html代码</button></div><br/>
+        <div><button id="btn06">设置#bj内的html代码</button></div>
+    </div>
+</body>
+</html>

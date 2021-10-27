@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\TSlearn"
+		},
+		{
+			"path": "..\\..\\Game"
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "'Fira Code', '微软雅黑', monospace",
+		"editor.fontWeight": 1,
+		"editor.fontSize": 20
+	}
+}

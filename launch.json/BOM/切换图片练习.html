@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            /* 
+            图片可以自动切换
+             */
+            //获取img标签
+            var img1 = document.getElementById("img1");
+            //创建数组来保存图片
+            var imgArr = ["img/03.jpg", "img/11.jpg", "img/12.jpg", "img/13.jpg"];
+            //创建变量保存当前图片的索引
+            var index = 0;
+            //定义一个变量 用来保存定时器的状态
+            var timer;
+            /* 
+            开启定时器来切换图片
+            */
+            //为btn01绑定单击响应函数
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                //每点击一次按钮 就会开启一个定时器
+                /* 
+                在开启定时器之前 把上一个关闭
+                */
+                clearInterval(timer); 
+                timer =setInterval(function () {
+                    //索引自增
+                    index++;
+                    //判断索引是否大于最大索引
+                    //修改img属性
+                    if (index >= imgArr.length) {
+                        index = 0;
+                    }
+                    img1.src = imgArr[index];
+                }, 1000);
+            };
+            var btn02=document.getElementById("btn02");
+            btn02.onclick=function(){
+                 //单击按钮 停止 关闭定时器
+                 //clearInterval()可以接收任意值 如果参数是个有效的定时器标识 则停止对应的定时器 
+                   //如果不是则什么都不做
+
+                clearInterval(timer);
+            };
+
+        };
+    </script>
+</head>
+
+<body>
+
+    <img id="img1" src="img/02.jpg">
+    <button id="btn01">开始</button>
+    <button id="btn02">暂停</button>
+</body>
+
+</html>
